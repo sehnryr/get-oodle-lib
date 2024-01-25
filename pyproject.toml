@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "get-oodle-lib"
+version = "0.1.0"
+description = "Get Oodle library for Unreal Engine"
+license = "GPL-3.0-or-later"
+authors = ["Youn Mélois <youn@melois.dev>"]
+readme = "README.md"
+repository = "https://github.com/sehnryr/get-oodle-lib"
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.24.4"
+black = "^23.12.1"
+isort = "^5.13.2"
+pytest = "^7.4.4"
+
+
+[tool.poe.tasks]
+black = "black --line-length=80 ./get_oodle_lib"
+isort = "isort --profile=black --line-length=80 ./get_oodle_lib"
+format = ["black", "isort"]
+test = "pytest ./tests"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

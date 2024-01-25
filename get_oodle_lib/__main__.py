@@ -2,8 +2,8 @@ import gzip
 import urllib.request
 import xml.etree.ElementTree as etree
 
-from get_oodle_lib.common import args
-from get_oodle_lib.parse import (
+from common import args
+from parse import (
     get_blobs,
     get_files,
     get_libraries,
@@ -20,7 +20,7 @@ base_url = tree.getroot().attrib["BaseUrl"]
 
 # Get the files
 files = get_files(tree)
-libraries = get_libraries(files)
+libraries = get_libraries(files, args.platform)
 
 # Get the blobs
 blobs = get_blobs(tree)

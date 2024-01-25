@@ -1,6 +1,3 @@
-from get_oodle_lib.common import BASE_PATH, args
-
-
 def get_files(tree):
     # Get the root element
     root = tree.getroot()
@@ -16,9 +13,9 @@ def get_files(tree):
     return files
 
 
-def get_version(name):
+def get_version(name, platform):
     # Check if the file is a library
-    if not name.startswith(BASE_PATH):
+    if not name.startswith("Engine/Source/Runtime/OodleDataCompression/Sdks/"):
         raise ValueError("File is not a library")
 
     # Split the file name
@@ -30,13 +27,13 @@ def get_version(name):
         "linux": "Linux",
         "mac": "Mac",
     }
-    if splitted[7] != platform_map[args.platform]:
+    if splitted[7] != platform_map[platform]:
         raise ValueError("File is not for the target platform")
 
     return tuple(map(int, splitted[5].split(".")))
 
 
-def get_libraries(files) -> dict[str, dict[str, str]]:
+def get_libraries(files, platform) -> dict[str, dict[str, str]]:
     libraries = {}
     version = (0, 0, 0)
 
@@ -44,7 +41,7 @@ def get_libraries(files) -> dict[str, dict[str, str]]:
     for file in files:
         # Get the version from the file
         try:
-            _version = get_version(file.attrib["Name"])
+            _version = get_version(file.attrib["Name"], platform)
         except ValueError:
             continue
 
@@ -61,7 +58,7 @@ def get_libraries(files) -> dict[str, dict[str, str]]:
     libraries = {
         library: values
         for library, values in libraries.items()
-        if get_version(library) == version
+        if get_version(library, platform) == version
     }
 
     return libraries

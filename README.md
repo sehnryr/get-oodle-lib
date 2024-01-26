@@ -10,3 +10,5 @@ python get_oodle_lib <path to Commit.gitdeps.xml> --platform <platform> --output
 ```
 
 For more information, run `python get_oodle_lib --help`.
+
+You can also install the package with `pipx install git+https://github.com/sehnryr/get-oodle-lib` and run it with `get-oodle-lib`.

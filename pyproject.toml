@@ -19,6 +19,10 @@ isort = "^5.13.2"
 pytest = "^7.4.4"
 
 
+[tool.poetry.scripts]
+get_oodle_lib = "get_oodle_lib.__main__:main"
+
+
 [tool.poe.tasks]
 black = "black --line-length=80 ./get_oodle_lib"
 isort = "isort --profile=black --line-length=80 ./get_oodle_lib"

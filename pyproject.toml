@@ -9,7 +9,7 @@ repository = "https://github.com/sehnryr/get-oodle-lib"
 
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 
 
 [tool.poetry.group.dev.dependencies]

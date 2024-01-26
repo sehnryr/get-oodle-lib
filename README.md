@@ -2,7 +2,7 @@
 A library for getting the oodle library from Unreal Engine source code.
 
 ## Dependencies
-- `Commit.gitdeps.xml` file from Unreal Engine source code (found [here](https://github.com/EpicGames/UnrealEngine/blob/release/Engine/Build/Commit.gitdeps.xml))
+- `Commit.gitdeps.xml` file from Unreal Engine source code (found [here](https://github.com/EpicGames/UnrealEngine/blob/release/Engine/Build/Commit.gitdeps.xml)) which access can be granted by following the instructions at https://github.com/EpicGames/Signup.
 
 ## Usage
 ```bash

@@ -1,6 +1,4 @@
 import argparse
-import os
-from pathlib import Path
 
 parser = argparse.ArgumentParser(
     prog="get_oodle_lib",
@@ -28,17 +26,3 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
-
-# Check if the gitdeps's path is valid and exists
-if not os.path.isfile(args.gitdeps):
-    print("Invalid path to Commit.gitdeps.xml")
-    exit(1)
-
-# Check if the output path is valid and exists else create it
-if not os.path.isdir(args.output):
-    try:
-        path = Path(args.output)
-        path.mkdir(parents=True)
-    except OSError:
-        print("Invalid path to output directory")
-        exit(1)

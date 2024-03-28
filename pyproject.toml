@@ -10,6 +10,7 @@ repository = "https://github.com/sehnryr/get-oodle-lib"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+parse-commit-gitdeps-xml = "^0.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
